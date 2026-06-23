@@ -5,7 +5,7 @@ public class Utilisateur {
     protected String motDePasse;
     protected String statut;
     protected long numeros;
-    protected String motDePasseChiffer="";
+    protected String comparaison = "";
 
     public Utilisateur(String identifiant,String nomComplet, String adressEmail , String motDePasse, String statut, long numeros){
         //Cette instructions permet de verifier que l'identifiant ne dépasse pas cinq caractere et aussi que l'identfiant ne contient pas d'espace
@@ -16,15 +16,12 @@ public class Utilisateur {
         this.nomComplet = nomComplet;
         this.adressEmail = adressEmail;
         //Cette instructions permet de verifier que le mot de passe ne dépasse pas huit caractere et aussi que l'identfiant ne contient pas d'espace
-        if (motDePasse.length() == 8 && motDePasse.contains("")){
-            this.motDePasse = motDePasse;
-            //Cette instruction nous permettra de chiffrer le mot de passe
-            for(int i = 0;i<motDePasse.length();i++){motDePasseChiffer = motDePasseChiffer + String.valueOf(((int)motDePasse.charAt(i)+3));}
-        }else{
-            this.motDePasse = null;
-            System.out.println("Erreur le mot de passe ne doit pas depasser huit (8) carateres et ne doit pas contenir d'espace !");
-        }
+        //Cette instruction nous permettra de chiffrer le mot de passe
+        for(int i = 0;i<motDePasse.length();i++){comparaison = comparaison + String.valueOf(((int)motDePasse.charAt(i)+3));}
+        this.motDePasse = comparaison;
         this.statut = statut.toUpperCase();
         this.numeros = numeros;
     }
+
+
 }

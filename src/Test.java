@@ -13,5 +13,16 @@ public class Test {
      *     //System.out.println(convertir);
      *          System.out.println(motDePasseChiffer);
      */
-
+    //Utilisateur utilisateur1 = new Utilisateur("Hassa","Hassan","diabagate@gmail.com","hassanaz","bloque",1233);
+    //Utilisateur utilisateur2 = new Utilisateur("Hassa","Hassan","diabagate@gmail.com","hassanaz","active",1233);
+    //  Utilisateur[] utilisateurs = {utilisateur1};
+    /// utilisateurs =
+    // for (int i =0;i<utilisateurs.length;i++){
+    // System.out.println(utilisateurs[i].statut);
+    // }
+    //Client client = new Client("Diabagate","Diabagatehassanilias@gmail.com","moussa10@","actif",05225,18019384,1000000);
+    //Variable du programme principale
+    // System.out.println(utilisateur.statut);
+    // String[] Identifiant = {"Hassan","Roméo","jolie","ZERO","Vilain"};
+    //Declaration des variables de bases
 }
