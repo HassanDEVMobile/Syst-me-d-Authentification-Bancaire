@@ -6,6 +6,7 @@ public class Utilisateur {
     protected String statut;
     protected long numeros;
     protected String comparaison = "";
+    protected String motDePasseNonChiffre="";
 
     public Utilisateur(String identifiant,String nomComplet, String adressEmail , String motDePasse, String statut, long numeros){
         //Cette instructions permet de verifier que l'identifiant ne dépasse pas cinq caractere et aussi que l'identfiant ne contient pas d'espace
@@ -18,9 +19,14 @@ public class Utilisateur {
         //Cette instructions permet de verifier que le mot de passe ne dépasse pas huit caractere et aussi que l'identfiant ne contient pas d'espace
         //Cette instruction nous permettra de chiffrer le mot de passe
         for(int i = 0;i<motDePasse.length();i++){comparaison = comparaison + String.valueOf(((int)motDePasse.charAt(i)+3));}
+        for(int i = 0;i<motDePasse.length();i++){motDePasseNonChiffre = motDePasseNonChiffre + String.valueOf(((char)((int)motDePasse.charAt(i) )));};
         this.motDePasse = comparaison;
         this.statut = statut.toUpperCase();
         this.numeros = numeros;
+    }
+
+    public void setStatut(String statut){
+        this.statut = statut.toUpperCase();
     }
 
 

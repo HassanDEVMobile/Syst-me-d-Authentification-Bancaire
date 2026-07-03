@@ -25,4 +25,6 @@ public class Test {
     // System.out.println(utilisateur.statut);
     // String[] Identifiant = {"Hassan","Roméo","jolie","ZERO","Vilain"};
     //Declaration des variables de bases
+    //String motDePasseChiffer = "";
+    //System.out.println(comparaison);
 }
