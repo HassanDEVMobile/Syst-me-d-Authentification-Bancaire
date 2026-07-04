@@ -1,13 +1,13 @@
 
+import java.io.BufferedReader;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //Declaration des variables
         int reponse = 0;
         String comparaison = "";
         String motPasse="";
-        int cptr = 0;
         String cleSpecial;
         Client[] client = {
                 new Client("Hassa", "Diabagate Hassan Ilias", "diabagate@gmail.com", "hassanaz", "active", 1233, 445655, 1000000),
@@ -51,6 +51,7 @@ public class Main {
             System.out.println(menuPrincipale);
             reponse = scanner.nextInt();
             if (reponse == 1) {
+                int cptr = 0;
                 scanner.nextLine();
                 System.out.println("Veuillez saisir votre identifiant(Nom d'utilisateur) :");
                 String id = scanner.nextLine();
@@ -60,7 +61,7 @@ public class Main {
                         //Cette condtion permet de verifier si le compte de l'utilisateur est active ou bloquer
                         if (client[i].statut.equals("ACTIVE")) {
                             //Cette boucle permet de compter le nombre de tentative du mot de passe avan de le bloquer
-                            for (int j = 0; j < 3; j++) {
+                            for (int j = 1; j <= 3; j++) {
                                 System.out.println("Veuillez saisir votre mot de passe : ");
                                 motPasse = scanner.nextLine();
                                 //Cette boucle permet de chiffrer le mot de passe avant de faire la comparaison
@@ -103,20 +104,21 @@ public class Main {
                         } else {
                             System.out.println("Vous ne pouvez pas acceder a votre compte car il a ete est bloquer !");
                         }
-
-                    } else if (i == client.length - 1) {
+                           break;
+                    } else if (i == client.length-1) {
                         System.out.println("Compte Introuvable !");
                     }
                 }
 
             } else if (reponse == 2) {
+                int cptr =  0;
                 scanner.nextLine();
                 System.out.println("Veuillez saisir votre identifiant(Nom d'utilisateur) :");
                 String id = scanner.nextLine();
                 for (int i = 0; i < employe.length; i++) {
                     if (id.equals(employe[i].identifiant)) {
                         if (employe[i].statut.equals("ACTIVE")) {
-                            for (int j = 0; j < 5; j++) {
+                            for (int j = 1; j <= 5; j++) {
                                 System.out.println("Veuillez saisir votre mot de passe : ");
                                 motPasse = scanner.nextLine();
                                 for (int x = 0; x < motPasse.length(); x++) {
@@ -158,8 +160,8 @@ public class Main {
                         } else {
                             System.out.println("Vous ne pouvez pas acceder a votre compte car il a ete est bloquer !");
                         }
-
-                    } else if (i == employe.length - 1) {
+                        break;
+                    } else if (i == employe.length-1) {
                         System.out.println("Compte Introuvable !");
                     }
                 }
@@ -193,6 +195,7 @@ public class Main {
                                                 for(int j=0;j<client.length;j++){
                                                     System.out.println((j+1)+"-"+client[j].nomComplet);
                                                 }
+                                                break;
                                             }
                                             else if(choix==2){
                                                 for(int j=0;j<client.length;j++){
@@ -202,25 +205,26 @@ public class Main {
                                                 int select = scanner.nextInt();
                                                 client[select].setStatut("active");
                                                 System.out.println("Opération effectuer avec succes");
+                                                break;
                                             }
-                                        comparaison = "";
-                                        break;
                                     }
-                                    break;
-                                } while (administrateur[i].cleSpecial.equals(cleSpecial));
-
+                               //     comparaison = "";
+                                } while (!cleSpecial.equals(administrateur[i].cleSpecial));
+                                comparaison ="";
+                                break;
                             } else if (!comparaison.equals(administrateur[i].motDePasse)) {
                                 comparaison = "";
                                 System.out.println("Echec le mot de passe est incorrect");
                             }
-                        } while (comparaison.equals(administrateur[i].motDePasse));
 
-                    } else if (i == administrateur.length - 1) {
+                        } while (!comparaison.equals(administrateur[i].motDePasse));
+                          break;
+                    } else if (i == administrateur.length-1) {
                         System.out.println("Compte Introuvable !");
                     }
                 }
             }
         }while (reponse != 0);
-
+       scanner.close();
     }
 }

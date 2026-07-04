@@ -8,11 +8,7 @@ public class Employe extends Utilisateur {
         this.departement = departement;
         this.salaire = salaire;
     }
-    public void voirDepartement(){
-        System.out.println("Departement : "+this.departement);
-    }
-    public void voirMatricule(){
-        System.out.println("Matricule : "+this.matricule);
-    }
+    public void voirDepartement(){System.out.println("Departement : "+this.departement);}
+    public void voirMatricule(){System.out.println("Matricule : "+this.matricule);}
 
 }
